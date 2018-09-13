@@ -1,0 +1,18 @@
+extends ./config/layouts
+
+block content
+  .hero.make-light.make-full-height
+    .hero__body
+      .wrapper
+        h1.make-text-info Expark MVC
+        h3.
+          Welcome to <span class="make-text-info">#{title}</span>, an app that was created
+          with the famous Express framework and styled with Sparkle!
+        a(href="/employees").button.make-info.make-large.make-margin-20-top Open App
+    .hero__footer
+      .wrapper
+        .make-padding-20-vertical.make-text-centered
+          p.
+            Designed by <strong>J. D. Riviere</strong>
+            using <strong><a href="https://expressjs.com/" target="_blank">Express</a></strong>
+            and <strong><a href="https://jdriviere.github.io/sparkle-css" target="_blank">Sparkle</a></strong>.

@@ -1,0 +1,27 @@
+extends ./config/layouts
+
+block content
+    .wrapper.make-padding-30-top
+        .buttons
+            a(href="/").button
+                i.fa.fa-arrow-left
+                span.make-margin-10-left Back to Home
+            a(href="/employees/create").button.make-info
+                i.fa.fa-plus
+                span.make-margin-10-left Create New Employee
+        
+        h1 Employees
+        if employees.length > 0
+            each employee in employees
+                .media
+                    .media__profile
+                        img(src="https://picsum.photos/64/64/?random")
+                    .media__body
+                        p.media__title= employee.name
+                        p.media__subtitle= employee.position
+                        br
+                        a(href=`/employees/show/${employee._id}`)
+                            span.make-margin-10-right Go to Profile
+                            i.fa.fa-arrow-right
+        else
+            h5.make-text-danger.make-text-bold --- No employees found ---

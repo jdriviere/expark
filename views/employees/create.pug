@@ -1,0 +1,29 @@
+extends ./config/layouts
+
+block content
+    .wrapper.make-padding-30-top
+        a(href="/employees").button
+            i.fa.fa-arrow-left
+            span.make-margin-10-left Back to Employees
+        
+        h1 Create New Employee
+        form(action="/employees/save", method="post")
+            .grid.make-gutters
+                .column
+                    .inputs
+                        label.label(for="name") Name
+                        input.input(type="text", id="name", name="name", required)
+                .column
+                    .inputs
+                        label.label(for="position") Position
+                        input.input(type="text", id="position", name="position", required)
+                .column
+                    .inputs
+                        label.label(for="salary") Salary
+                        .form-group
+                            button.button.make-dark(disabled) $
+                            input.input(type="number", id="salary", name="salary", required)
+            .inputs
+                label.label(for="name") Address
+                textarea.textarea(id="address", name="address")
+            button.button.make-success(type="submit", value="save") SAVE

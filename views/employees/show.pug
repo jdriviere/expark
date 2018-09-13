@@ -1,0 +1,33 @@
+extends ./config/layouts
+
+block content
+    .wrapper.make-padding-30-top
+        a(href="/employees").button
+            i.fa.fa-arrow-left
+            span.make-margin-10-left Back to Employees
+
+        h1 Employee Detail
+
+        //- BUTTON GROUP
+        .buttons.make-margin-30-vertical
+            a(href=`/employees/edit/${employee._id}`).button.make-info
+                i.fa.fa-edit
+                span.make-margin-10-left EDIT
+            form(action=`/employees/delete/${employee._id}`, method="post")
+                button(type="submit").button.make-danger
+                    i.fa.fa-times
+                    span.make-margin-10-left DELETE
+        
+        //- EMPLOYEE CARD
+        .card.make-shadow(style="max-width:400px")
+            .card__header
+                .card__title= employee.name
+                .card__subtitle= employee.position
+            .card__body
+                img(src="https://picsum.photos/400/300/?random").card__image
+
+            .card__footer
+                .card__footer__item
+                    p= employee.address
+                .card__footer__item
+                    p.make-text-bold= `$ ${employee.salary}`

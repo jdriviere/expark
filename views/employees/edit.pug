@@ -1,0 +1,26 @@
+extends ./config/layouts
+
+block content
+    .wrapper.make-padding-30-top            
+        a(href="/employees").button
+            i.fa.fa-arrow-left
+            span.make-margin-10-left Back to Employees
+        
+        h1 Edit Employee
+        form(action="/employees/update/" + employee._id, method="post")
+            .grid.make-gutters
+                .column
+                    label(for="name").label Name
+                    input(type="text", name="name", id="name", value=employee.name).input
+                .column
+                    label(for="position").label Position
+                    input(type="text", name="position", id="position", value=employee.position).input
+                .column
+                    label(for="salary").label Salary
+                    .form-group
+                        button.button.make-dark(disabled) $
+                        input(type="number", name="salary", id="salary", value=employee.salary).input
+            .inputs
+                label(for="address").label Address
+                textarea(name="address", id="address").textarea= employee.address
+            button(type="submit").button.make-success UPDATE
